@@ -83,8 +83,14 @@ h3{
     padding: 0.8rem;
     border: none;
     flex: 1;
-    width: 97%;
+    width: 88%;
     border-radius: 10px;
+}
+
+
+
+hr{
+    margin-top: 20px;
 }
 
 #indice{
@@ -99,8 +105,7 @@ h3{
 
 .descri{
     display: flex;
-    flex-direction: column;
-    text-align: justify;
+    flex-direction: column; 
 }
 
 .contentAir{
@@ -240,3 +245,8 @@ top: calc(50% - 40px);
     }
 }
 
+@media (max-width: 414px){
+    .cityB{
+        font-size: 1.2rem;
+    }
+}
