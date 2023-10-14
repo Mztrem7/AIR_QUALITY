@@ -22,13 +22,27 @@
 
 body{
     background-color: var(--color5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
 }
 
+#date{
+    margin: 20px 0px 0px 20px;
+    font-family: var(--font2);
+    opacity: 0.5;
+}
+#indice{
+    margin: 20px 0px 0px 20px;
+    font-family: var(--font2);
 
+
+}
+
+.sla{
+    margin: 10px 0px 0px 20px ;
+}
+#descriIndice{
+    font-family: var(--font2);
+}
 
 .hide{
     transition: 1s;
@@ -39,6 +53,7 @@ body{
     background-color: darkslategray;
     border-radius: 25px;
     padding: 20px;
+    margin: auto;
     box-shadow: 0px 3px 8px black;
     color: #fefefe;
     width: 60%;

@@ -14,33 +14,51 @@ async function getCityData() {
     const result = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${cityInput.value}&limit=5&appid=${apiKey}`)
 
     console.log("CIDADE")
-    console.log(result);
+    console.log(result.data);
 
-    let lat = result.data[0].lat
-    let lon = result.data[0].lon
-    let city = result.data[0].name
-    let country = result.data[0].country
+    let lat;
+    let lon;
+    let city;
+    let country;
 
+
+
+    if(result.data.length != 0){
+        lat = result.data[0].lat
+        lon = result.data[0].lon
+        city = result.data[0].name
+        country = result.data[0].country
+    }else{
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Aconteceu Algo de errado!',
+            footer: '<p>Talvez você tenha escrito o nome errado, tente novamente!</p>'
+        })
+        setTimeout(() => {
+            location.reload()
+        }, 3000);
+    }
+    
+    
     await getAirData(lat,lon,country)
 
 }
 
 async function getAirData(lat,long,country){
-    console.log("AR")
-    const result = await axios.get(`http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${lat}&lon=${long}&appid=${apiKey}`)
+    
+        console.log("AR")
+        const result = await axios.get(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${long}&appid=${apiKey}`)
 
-    console.log(result)
-    let date = new Date(result.data.list[result.data.list.length - 1].dt*1000)
-    console.log(date.toLocaleDateString("pt-BR"));
-
-    
-    
-    
-    await createDatas(result.data.list[result.data.list.length - 1].components,country,result.data.list[result.data.list.length - 1].main)
-    datas.classList.remove("hide")
+        console.log(result)
+        let date = new Date(result.data.list[0].dt*1000)
+        console.log(date.toLocaleDateString("pt-BR"));
+        
+        await createDatas(result.data.list[0].components,country,result.data.list[0].main,date.toLocaleDateString("pt-BR"))
+        datas.classList.remove("hide")
 }
 
-function createDatas(components,country,aqi){
+function createDatas(components,country,aqi,date){
     const cityB = document.querySelector('.cityB')
     const item1 = document.getElementById('item1')
     const item2 = document.getElementById('item2')
@@ -55,8 +73,11 @@ function createDatas(components,country,aqi){
     const square = document.querySelector('.square')
     const descriIndice = document.getElementById('descriIndice')
     const pais = document.getElementById('pais')
+    const pDate = document.getElementById('date')
+    
 
     
+    pDate.innerHTML = 'Data: ' + date
     item1.innerHTML = `Co  = ${components.co}`
     item2.innerHTML = `No  = ${components.no}`
     item3.innerHTML = `No₂ = ${components.no2}`
@@ -92,8 +113,6 @@ function createDatas(components,country,aqi){
         descriIndice.innerHTML = "Poluição Muito Alto - O ar está péssimo, já passou da hora de mudanças drasticas"
         square.classList.add("red")
     }
-    
-    
 }
 
 searchInput.addEventListener('click', async() => {
