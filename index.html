@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API QUALIDADE DO AR</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API - CLIMA</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="index.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="index.js"></script>
+
+</head>
+<body>
+
+    <div class="conteiner">
+
+        <div class="form">
+
+            <h3>Veja a qualidade do ar de uma cidade</h3>
+
+            <div class="form-input-conteiner">
+                <input type="text" placeholder="Ex: Rio de Janeiro" id="city-input"><br>
+                <button id="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+        </div>
+
+
+        <div id="loader"></div>
+        <h4></h4>  
+
+        <div class="datas hide">
+            <div class="descri">
+                <h2 id="cit">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="cityB"></span>
+                    <img src="http://purecatamphetamine.github.io/country-flag-icons/3x2/BR.svg" alt="bandeira-do-país" id="pais">
+                </h2>
+                <h2>Componentes Químicos</h2>
+                    <ul id="ulist">
+                        <li id="item1"></li>
+                        <li id="item2"></li>
+                        <li id="item3"></li>
+                        <li id="item4"></li>
+                        <li id="item5"></li>
+                        <li id="item6"></li>
+                        <li id="item7"></li>
+                        <li id="item8"></li>
+                        <li id="item9"></li>
+                    </ul>
+                <h2>Qualidade Do Ar</h2>
+                <h2>Índice da qualidade do Ar</h>
+
+                <p id="indice"></p>
+
+                <div class="sla">
+                    <div class="square"></div>
+                    <span id="descriIndice"></span>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>  
+</body>
+</html>
+</body>
+</html>
