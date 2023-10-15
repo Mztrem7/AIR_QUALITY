@@ -46,7 +46,7 @@ async function getCityData() {
 }
 
 async function getAirData(lat,long,country){
-    
+
         console.log("AR")
         const result = await axios.get(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${long}&appid=${apiKey}`)
 
@@ -102,7 +102,7 @@ function createDatas(components,country,aqi,date){
         square.classList.add("green")
     }
     if(aqi.aqi == 3){
-        descriIndice.innerHTML = "Poluição Baixa - O ar está mediano, podemos melhorar mais devemos começar a nos preocupar"
+        descriIndice.innerHTML = "Poluição Média - O ar está mediano, podemos melhorar mais devemos começar a nos preocupar"
         square.classList.add("yellow")
     }
     if(aqi.aqi == 4){
