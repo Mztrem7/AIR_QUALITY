@@ -11,7 +11,7 @@ const searchInput = document.getElementById('search')
 
 async function getCityData() {
 
-    const result = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${cityInput.value}&limit=5&appid=${apiKey}`)
+    const result = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${cityInput.value}&limit=5&appid=${apiKey}`)
 
     console.log("CIDADE")
     console.log(result.data);
@@ -48,7 +48,7 @@ async function getCityData() {
 async function getAirData(lat,long,country){
     
         console.log("AR")
-        const result = await axios.get(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${long}&appid=${apiKey}`)
+        const result = await axios.get(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${long}&appid=${apiKey}`)
 
         console.log(result)
         let date = new Date(result.data.list[0].dt*1000)
